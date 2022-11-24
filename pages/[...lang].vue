@@ -262,7 +262,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         {{ questions.length }}
         <div v-for="question in questions">
           <div>
-            <h2 :dir="dir">
+            <h2 :dir="dir" class="text-slate-900 dark:text-slate-200">
               {{ question.title }}
             </h2>
           </div>
@@ -283,7 +283,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
           </ul>
           <h1 class="text-center text-white bg-blue-200">Answer</h1>
           <div v-if="question.answer">
-            <div v-html="question.answer" :dir="dir"></div>
+            <div v-html="question.answer" :dir="dir" class="text-slate-900 dark:text-slate-200"></div>
           </div>
 
           <hr>

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 
-code {
-  @apply bg-gray-800 px-2 py-1 !text-white rounded;
+code:not(pre code){
+  @apply bg-gray-800 px-2 py-1 !text-white rounded dark:bg-gray-700;
   &::before,
   &::after { 
     @apply hidden;
