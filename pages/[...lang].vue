@@ -132,7 +132,7 @@ onMounted(async () => {
 
 
   // Questions with body
-  wrapper.querySelectorAll('h6 + pre + ul + details').forEach(detailsElement => {
+  wrapper.querySelectorAll('h6 + pre + ul + details, h6 + div + ul + details').forEach(detailsElement => {
     const choicesListElement = detailsElement.previousElementSibling;
     const bodyElement = choicesListElement.previousElementSibling;
     const headerElement = bodyElement.previousElementSibling;
@@ -140,8 +140,9 @@ onMounted(async () => {
     extractQuestionContent(headerElement, bodyElement, choicesListElement, detailsElement);
   });
 
-  // Questions without body
-  wrapper.querySelectorAll('h6 + ul + details').forEach(detailsElement => {
+
+  // Question without body
+  wrapper.querySelectorAll('h6 + ul + details, div + ul + details').forEach(detailsElement => {
     const choicesListElement = detailsElement.previousElementSibling;
     const headerElement = choicesListElement.previousElementSibling;
 
@@ -149,18 +150,8 @@ onMounted(async () => {
   });
 
 
-  // Questions with body
-  wrapper.querySelectorAll('h6 + div + ul + details').forEach(detailsElement => {
-    const choicesListElement = detailsElement.previousElementSibling;
-    const bodyElement = choicesListElement.previousElementSibling;
-    const headerElement = bodyElement.previousElementSibling;
-
-    extractQuestionContent(headerElement, bodyElement, choicesListElement, detailsElement);
-  });
-
-
-  // Questions with body
-  wrapper.querySelectorAll('ol + div + ul + details').forEach(detailsElement => {
+  // Questions with body (list)
+  wrapper.querySelectorAll('ol + pre + ul + details, ol + div + ul + details').forEach(detailsElement => {
     const choicesListElement = detailsElement.previousElementSibling;
     const bodyElement = choicesListElement.previousElementSibling;
     const headerElement = bodyElement.previousElementSibling.firstElementChild;
@@ -170,39 +161,7 @@ onMounted(async () => {
 
 
   // Questions with body
-  wrapper.querySelectorAll('ol + pre + ul + details').forEach(detailsElement => {
-    const choicesListElement = detailsElement.previousElementSibling;
-    const bodyElement = choicesListElement.previousElementSibling;
-    const headerElement = bodyElement.previousElementSibling.firstElementChild;
-
-    if (!headerElement)
-      console.log(detailsElement)
-
-    extractQuestionContent(headerElement, bodyElement, choicesListElement, detailsElement);
-  });
-
-
-  // Questions without body
-  wrapper.querySelectorAll('div + ul + details').forEach(detailsElement => {
-    const choicesListElement = detailsElement.previousElementSibling;
-    const headerElement = choicesListElement.previousElementSibling;
-
-    extractQuestionContent(headerElement, null, choicesListElement, detailsElement);
-  });
-
-
-  // Questions with body
-  wrapper.querySelectorAll('div + pre + ul + details').forEach(detailsElement => {
-    const choicesListElement = detailsElement.previousElementSibling;
-    const bodyElement = choicesListElement.previousElementSibling;
-    const headerElement = bodyElement.previousElementSibling;
-
-    extractQuestionContent(headerElement, null, choicesListElement, detailsElement);
-  });
-
-
-  // Questions with body
-  wrapper.querySelectorAll('p + pre + ul + details').forEach(detailsElement => {
+  wrapper.querySelectorAll('div + pre + ul + details, p + pre + ul + details').forEach(detailsElement => {
     const choicesListElement = detailsElement.previousElementSibling;
     const bodyElement = choicesListElement.previousElementSibling;
     const headerElement = bodyElement.previousElementSibling;
