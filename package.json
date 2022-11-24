@@ -13,6 +13,7 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
+    "country-flag-emoji-polyfill": "^0.1.4",
     "marked": "^4.2.3"
   }
 }

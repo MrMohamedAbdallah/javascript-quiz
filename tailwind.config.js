@@ -11,5 +11,13 @@ module.exports = {
     "./nuxt.config.{js,ts}",
   ],
   plugins: [
-  ],  
+    require('@tailwindcss/typography'),
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        'emoji': ["Twemoji Country Flags", "Helvetica", "Comic Sans", 'serif'],
+      }
+    }
+  }  
 }

@@ -1,35 +1,43 @@
+<script setup>
+const visible = ref(false);
+
+const openModel = () => {
+  visible.value = true;
+}
+</script>
+
 <template>
-  <div class="bg-white dark:bg-slate-900 relative overflow-hidden">
+  <div class="relative overflow-hidden bg-white dark:bg-slate-900">
     <!-- Circles -->
 
     <!-- Left -->
-    <div class="opacity-50 dark:opacity-20 w-96 h-40 rotate-45 rounded-full bg-blue-200 dark:bg-blue-900 blur-3xl absolute -top-10 -left-5 pointer-events-none">
+    <div class="absolute h-40 rotate-45 bg-blue-200 rounded-full opacity-50 pointer-events-none dark:opacity-20 w-96 dark:bg-blue-900 blur-3xl -top-10 -left-5">
     </div>
-    <div class="opacity-50 dark:opacity-20 w-96 h-40 rotate-45 rounded-full bg-green-200 dark:bg-pink-900 blur-3xl absolute top-1/4 -left-5 pointer-events-none">
+    <div class="absolute h-40 rotate-45 bg-green-200 rounded-full opacity-50 pointer-events-none dark:opacity-20 w-96 dark:bg-pink-900 blur-3xl top-1/4 -left-5">
     </div>
-    <div class="opacity-50 dark:opacity-20 w-96 h-40 rotate-45 rounded-full bg-indigo-200 dark:bg-indigo-900 blur-3xl absolute top-1/3 -left-5 pointer-events-none">
+    <div class="absolute h-40 rotate-45 bg-indigo-200 rounded-full opacity-50 pointer-events-none dark:opacity-20 w-96 dark:bg-indigo-900 blur-3xl top-1/3 -left-5">
     </div>
-    <div class="opacity-50 dark:opacity-20 w-96 h-40 rotate-45 rounded-full bg-red-100 dark:bg-cyan-900 blur-3xl absolute top-1/3 -left-5 pointer-events-none">
+    <div class="absolute h-40 rotate-45 bg-red-100 rounded-full opacity-50 pointer-events-none dark:opacity-20 w-96 dark:bg-cyan-900 blur-3xl top-1/3 -left-5">
     </div>
 
     <!-- Right -->
     <div
-      class="hidden sm:block opacity-50 dark:opacity-20 w-96 h-40 rotate-45 rounded-full bg-blue-200 dark:bg-blue-900 blur-3xl absolute -top-10 -right-5 pointer-events-none">
+      class="absolute hidden h-40 rotate-45 bg-blue-200 rounded-full opacity-50 pointer-events-none sm:block dark:opacity-20 w-96 dark:bg-blue-900 blur-3xl -top-10 -right-5">
     </div>
     <div
-      class="hidden sm:block opacity-50 dark:opacity-20 w-96 h-40 rotate-45 rounded-full bg-green-200 dark:bg-pink-900 blur-3xl absolute top-1/4 -right-5 pointer-events-none">
+      class="absolute hidden h-40 rotate-45 bg-green-200 rounded-full opacity-50 pointer-events-none sm:block dark:opacity-20 w-96 dark:bg-pink-900 blur-3xl top-1/4 -right-5">
     </div>
     <div
-      class="hidden sm:block opacity-50 dark:opacity-20 w-96 h-40 rotate-45 rounded-full bg-indigo-200 dark:bg-indigo-900 blur-3xl absolute top-1/3 -right-5 pointer-events-none">
+      class="absolute hidden h-40 rotate-45 bg-indigo-200 rounded-full opacity-50 pointer-events-none sm:block dark:opacity-20 w-96 dark:bg-indigo-900 blur-3xl top-1/3 -right-5">
     </div>
     <div
-      class="hidden sm:block opacity-50 dark:opacity-20 w-96 h-40 rotate-45 rounded-full bg-red-100 dark:bg-cyan-900 blur-3xl absolute top-1/3 -right-5 pointer-events-none">
+      class="absolute hidden h-40 rotate-45 bg-red-100 rounded-full opacity-50 pointer-events-none sm:block dark:opacity-20 w-96 dark:bg-cyan-900 blur-3xl top-1/3 -right-5">
     </div>
 
     <nav class="absolute z-20 w-full px-5 py-4">
-      <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center justify-between max-w-6xl mx-auto">
 
-        <div class="ml-auto text-gray-800 dark:text-gray-400 flex items-center">
+        <div class="flex items-center ml-auto text-gray-800 dark:text-gray-400">
           <ThemeSwitcher class="mr-4" />
           <a href="#" class="ml-auto ">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -57,9 +65,9 @@
         <rect width="100%" height="100%" fill="url(#grid2)" />
       </svg>
     </div>
-    <main class="min-h-screen flex items-center justify-center relative z-10">
-      <div class="content px-5 py-10 max-w-6xl">
-        <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-7xl text-black dark:text-white">
+    <main class="relative z-10 flex items-center justify-center min-h-screen">
+      <div class="max-w-6xl px-5 py-10 content">
+        <h1 class="text-4xl font-bold tracking-tight text-black sm:text-center sm:text-7xl dark:text-white">
           <span class="text-[#f0db4f]">JavaScript</span> Quiz Questions
         </h1>
         <p class="mt-6 text-xl leading-8 text-gray-600 dark:text-slate-400 sm:text-center">
@@ -67,15 +75,20 @@
           <a href="https://github.com/lydiahallie/javascript-questions" target="_blank"
             class="font-semibold underline decoration-indigo-500">repo</a>.
         </p>
-        <div class="mt-8 flex gap-x-4 sm:justify-center">
+        <div class="flex mt-8 gap-x-4 sm:justify-center">
           <a href="#"
-            class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-lg font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">
+            class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-lg font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
+            @click="openModel"
+          >
             Start Your Quiz
             <span class="text-indigo-200" aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>
     </main>
+
+    <LanguagesModal v-model:visible="visible"/>
+
   </div>
 </template>
 
