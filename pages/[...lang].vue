@@ -5,10 +5,10 @@ const data = ref();
 const html = ref('');
 const questionsHTMl = ref([]);
 const index = ref(0);
-const userAnswer = ref(false);
 const questions = ref([]);
 const route = useRoute();
 const dir = ref('ltr');
+const isLoading = ref(false);
 
 console.log(route.params.lang.join('/'));
 
@@ -119,8 +119,9 @@ const extractQuestionContent = (headerElement, bodyElement, choicesListElement, 
 
 
 onMounted(async () => {
-  // data.value = await $fetch('https://raw.githubusercontent.com/lydiahallie/javascript-questions/master/README.md');
+  isLoading.value = true;
   data.value = await $fetch(`https://raw.githubusercontent.com/lydiahallie/javascript-questions/master/${route.params.lang.join('/')}`);
+  isLoading.value = false;
 
   html.value = marked(data.value);
 
@@ -256,6 +257,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 </script>
 
 <template>
+  <Loading v-if="isLoading"/>
   <div class="px-2">
     <div class="mx-auto prose">
       <template v-if="questions.length">
