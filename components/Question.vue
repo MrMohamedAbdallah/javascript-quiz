@@ -20,20 +20,20 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     <pre v-if="question.body" v-html="question.body"></pre>
     <ul class="px-0 list-none">
       <li v-for="(choice, i) in question.choices" :class="[
-          'cursor-pointer p-2 rounded border border-solid flex transition',
+          'cursor-pointer p-2 rounded border-2 border-solid flex transition',
           {
-            'hover:bg-blue-200 hover:border-blue-500': !showAnswer,
-            'bg-green-200 border-green-500': showAnswer && choice.isCorrect,
-            'bg-red-200 border-red-500': showAnswer && !choice.isCorrect && question.userAnswer == i,
-            'border-blue-500 bg-blue-200': question.userAnswer == i && !showAnswer,
+            'hover:bg-blue-200 hover:border-blue-500 dark:hover:bg-blue-800 dark:hover:bg-opacity-30': !showAnswer,
+            'bg-green-200 border-green-500 dark:bg-green-600 dark:bg-opacity-20': showAnswer && choice.isCorrect,
+            'bg-red-200 border-red-500 dark:bg-red-600 dark:bg-opacity-20': showAnswer && !choice.isCorrect && question.userAnswer == i,
+            'border-blue-500 bg-blue-200 dark:bg-blue-800 dark:bg-opacity-30': question.userAnswer == i && !showAnswer,
           }
         ]"
         @click="$emit('select', i)"
       >
-        <div class="flex items-center justify-center w-8 h-8 mr-2 font-bold bg-gray-200 rounded">
+        <div class="flex items-center justify-center w-8 h-8 mr-2 font-bold bg-gray-100 rounded shadow">
           {{ letters[i] }}
         </div>
-        <div v-html="choice.html"></div>
+        <div v-html="choice.html" class="dark:text-gray-200"></div>
       </li>
     </ul>
     <div v-if="question.answer && showAnswer">
