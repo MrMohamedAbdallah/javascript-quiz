@@ -7,6 +7,7 @@ const props = defineProps({
 const currentIndex = ref(0);
 const grade = ref(0);
 const isSubmitted = ref(false);
+const showModal = ref(false);
 
 const next = () => {
   currentIndex.value += 1;
@@ -45,6 +46,12 @@ const submit = () => {
   grade.value = getNumberOfRightAnswer();
   
   isSubmitted.value = true;
+  showModal.value = true;
+}
+
+const review = () => {
+  showModal.value = false;
+  currentIndex.value = 0;
 }
 </script>
 <template>
@@ -92,5 +99,12 @@ const submit = () => {
     </button>
     <!-- /Submit -->
   </div>
+
+  <GradeModal 
+    v-model:visible="showModal" 
+    :grade="grade"
+    :total="questions.length"
+    @review="review"
+  />
   
 </template>
