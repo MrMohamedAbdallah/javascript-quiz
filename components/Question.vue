@@ -20,11 +20,12 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     <pre v-if="question.body" v-html="question.body"></pre>
     <ul class="px-0 list-none">
       <li v-for="(choice, i) in question.choices" :class="[
-          'cursor-pointer p-2 rounded border border-solid hover:bg-blue-200 hover:border-blue-500 flex transition',
+          'cursor-pointer p-2 rounded border border-solid flex transition',
           {
+            'hover:bg-blue-200 hover:border-blue-500': !showAnswer,
             'bg-green-200 border-green-500': showAnswer && choice.isCorrect,
-            'bg-red-200 border-red-500': showAnswer && !choice.isCorrect,
-            'border-blue-500 bg-blue-200': question.userAnswer == i,
+            'bg-red-200 border-red-500': showAnswer && !choice.isCorrect && question.userAnswer == i,
+            'border-blue-500 bg-blue-200': question.userAnswer == i && !showAnswer,
           }
         ]"
         @click="$emit('select', i)"
@@ -38,10 +39,5 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     <div v-if="question.answer && showAnswer">
       <div v-html="question.answer" :dir="dir" class="text-slate-900 dark:text-slate-200"></div>
     </div>
-
-    <hr>
-    <hr>
-    <hr>
-
   </div>
 </template>
