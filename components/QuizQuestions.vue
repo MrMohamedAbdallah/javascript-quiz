@@ -1,4 +1,6 @@
 <script setup>
+import confetti from 'canvas-confetti';
+
 const props = defineProps({
   questions: Array,
   dir: 'ltr',
@@ -33,7 +35,7 @@ const canGoBack = computed(() => {
 })
 
 const select = (answerIndex) => {
-  if(isSubmitted.value)
+  if (isSubmitted.value)
     return;
   props.questions[currentIndex.value].userAnswer = answerIndex;
 }
@@ -46,9 +48,25 @@ const getNumberOfRightAnswer = () => {
 
 const submit = () => {
   grade.value = getNumberOfRightAnswer();
-  
+
   isSubmitted.value = true;
   showModal.value = true;
+
+
+  if (grade.value == props.questions.length) {
+    const callback = () => {
+      const interval = Math.random() * 2000 + 200;
+      if(showModal.value) {
+        confetti({
+          particleCount: 200,
+          spread: 150
+        });
+        setTimeout(callback, interval)
+      }
+    }
+    callback();
+  }
+
 }
 
 const review = () => {
@@ -57,56 +75,32 @@ const review = () => {
 }
 </script>
 <template>
-  
-  <Question 
-    :question="questions[currentIndex]"
-    :dir="dir"
-    :index="currentIndex"
-    :showAnswer="isSubmitted"
-    @select="select($event)" 
-  />
-  
+
+  <Question :question="questions[currentIndex]" :dir="dir" :index="currentIndex" :showAnswer="isSubmitted"
+    @select="select($event)" />
+
   <div class="flex items-center justify-between my-4">
     <!-- Back -->
-    <button 
-      type="button"
-      @click="back"
-      :disabled="!canGoBack"
-      class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-2 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
-    >
+    <button type="button" @click="back" :disabled="!canGoBack"
+      class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-2 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
       &larr; Back
     </button>
     <!-- /Back -->
-    
+
     <!-- Next -->
-    <button
-      v-if="!isLast"
-      type="button" 
-      @click="next" 
-      :disabled="!canGoNext"
-      class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-2 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
-    >
+    <button v-if="!isLast" type="button" @click="next" :disabled="!canGoNext"
+      class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-2 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
       Next &rarr;
     </button>
     <!-- /Next -->
     <!-- Submit -->
-    <button
-      v-if="isLast"
-      type="button"
-      @click="submit" 
-      :disabled="!canGoNext || isSubmitted"
-      class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-2 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
-    >
+    <button v-if="isLast" type="button" @click="submit" :disabled="!canGoNext || isSubmitted"
+      class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-2 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
       Submit 🚀
     </button>
     <!-- /Submit -->
   </div>
 
-  <GradeModal 
-    v-model:visible="showModal" 
-    :grade="grade"
-    :total="questions.length"
-    @review="review"
-  />
-  
+  <GradeModal v-model:visible="showModal" :grade="grade" :total="questions.length" @review="review"/>
+
 </template>
