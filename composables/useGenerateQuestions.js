@@ -169,6 +169,7 @@ const transform = (html) => {
 export default function (url) {
   const questions = ref([]);
   const dir = ref('ltr');
+  const isLoaded = ref(false);
   const isLoading = ref(false);
   const hasError = ref(false);
   const notFound = ref(false);
@@ -178,6 +179,7 @@ export default function (url) {
     try {
       const html = await $fetch(`https://raw.githubusercontent.com/lydiahallie/javascript-questions/master/${url}`);
       isLoading.value = false;
+      isLoaded.value = true;
 
       const transformedData = transform(html);
 
@@ -195,6 +197,7 @@ export default function (url) {
     questions,
     dir,
     isLoading,
+    isLoaded,
     hasError,
     notFound,
   }

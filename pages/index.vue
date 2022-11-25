@@ -53,7 +53,7 @@ const openModel = () => {
     <main class="relative z-10 flex items-center justify-center min-h-screen">
       <div class="max-w-6xl px-5 py-10 content">
         <h1 class="text-4xl font-bold tracking-tight text-black sm:text-center sm:text-7xl dark:text-white">
-          <span class="text-[#f0db4f]">JavaScript</span> Quiz Questions
+          <span class="text-javascript">JavaScript</span> Quiz Questions
         </h1>
         <p class="mt-6 text-xl leading-8 text-gray-600 dark:text-slate-400 sm:text-center">
           The questions are generate from the <strong>most</strong> popular JavaScript questions

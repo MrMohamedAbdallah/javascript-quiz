@@ -15,6 +15,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        javascript: '#f0db4f',
+      },
       fontFamily: {
         'emoji': ["Twemoji Country Flags", "Helvetica", "Comic Sans", 'serif'],
       }

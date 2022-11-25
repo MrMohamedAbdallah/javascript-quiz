@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">
+  <div class="min-h-screen bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">
     <nav class="absolute z-20 w-full px-5 py-4">
       <div class="flex items-center justify-between max-w-5xl mx-auto">
         <NuxtLink to="/" class="mr-auto text-base hover:text-indigo-700 text-slate-900 dark:text-gray-400 dark:hover:text-indigo-400" activeClass="!text-indigo-500">
