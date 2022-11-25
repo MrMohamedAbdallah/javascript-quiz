@@ -33,6 +33,8 @@ const canGoBack = computed(() => {
 })
 
 const select = (answerIndex) => {
+  if(isSubmitted.value)
+    return;
   props.questions[currentIndex.value].userAnswer = answerIndex;
 }
 

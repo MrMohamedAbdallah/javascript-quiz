@@ -20,9 +20,9 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     <pre v-if="question.body" v-html="question.body"></pre>
     <ul class="px-0 list-none">
       <li v-for="(choice, i) in question.choices" :class="[
-          'cursor-pointer p-2 rounded border-2 border-solid flex transition',
+          'p-2 rounded border-2 border-solid flex transition',
           {
-            'hover:bg-blue-200 hover:border-blue-500 dark:hover:bg-blue-800 dark:hover:bg-opacity-30': !showAnswer,
+            'hover:bg-blue-200 hover:border-blue-500 dark:hover:bg-blue-800 dark:hover:bg-opacity-30 cursor-pointer': !showAnswer,
             'bg-green-200 border-green-500 dark:bg-green-600 dark:bg-opacity-20': showAnswer && choice.isCorrect,
             'bg-red-200 border-red-500 dark:bg-red-600 dark:bg-opacity-20': showAnswer && !choice.isCorrect && question.userAnswer == i,
             'border-blue-500 bg-blue-200 dark:bg-blue-800 dark:bg-opacity-30': question.userAnswer == i && !showAnswer,
