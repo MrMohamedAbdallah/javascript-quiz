@@ -1,13 +1,18 @@
 <template>
-  <div class="min-h-screen bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">
+  <div class="min-h-screen bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200" :dir="$i18n.locale == 'ar' ? 'rtl' : 'ltr'">
     <nav class="absolute z-20 w-full px-5 py-4">
       <div class="flex items-center justify-between max-w-5xl mx-auto">
-        <NuxtLink to="/" class="mr-auto text-base hover:text-indigo-700 text-slate-900 dark:text-gray-400 dark:hover:text-indigo-400" activeClass="!text-indigo-500">
+        <NuxtLink to="/"
+          class="mr-4 text-base rtl:mr-0 rtl:ml-4 hover:text-indigo-700 text-slate-900 dark:text-gray-400 dark:hover:text-indigo-400"
+          activeClass="!text-indigo-500">
           Home
         </NuxtLink>
+        <!-- Localization -->
+        <I18n class="mr-auto rtl:mr-0 rtl:ml-auto" />
+        <!-- /Localization -->
 
-        <div class="flex items-center ml-auto text-gray-800 dark:text-gray-400">
-          <ThemeSwitcher class="mr-4" />
+        <div class="flex items-center ml-auto text-gray-800 rtl:ml-0 rtl:mr-auto dark:text-gray-400">
+          <ThemeSwitcher class="mr-4 rtl:mr-0 rtl:ml-4" />
           <a href="#" class="ml-auto ">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path fill="currentColor"

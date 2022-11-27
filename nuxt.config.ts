@@ -3,7 +3,10 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss'
   ],
-  plugins: ['~/plugins/flags.js'],
+  plugins: [
+    {src: '~/plugins/flags.js', mode: 'client'},
+    {src: '~/plugins/vue-i18n.js', mode: 'client'},
+  ],
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
   },
