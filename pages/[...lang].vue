@@ -74,11 +74,11 @@ const all = () => {
   <div class="px-2 py-16">
     
     <div class="max-w-5xl mx-auto text-center" v-if="isLoaded && !started">
-      <h3 class="mb-4 font-bold text-8xl text-bold text-javascript">{{ questions.length}}</h3>
-      <h3 class="text-4xl font-bold text-bold dark:text-white">Available Questions</h3>
+      <h3 class="mb-4 font-bold text-8xl text-bold text-javascript rtl:text-center">{{ questions.length}}</h3>
+      <h3 class="text-4xl font-bold text-bold dark:text-white rtl:text-center">{{ $t('available-questions') }}</h3>
 
       <div class="max-w-full px-2 mx-auto my-4 text-left w-96">
-        <label for="number-of-questions" class="block mb-2">Choose how many questions you want in the quiz.</label>
+        <label for="number-of-questions" class="block mb-2">{{ $t('choose-questions') }}</label>
         <input
           type="number"
           id="number-of-questions"
@@ -97,10 +97,18 @@ const all = () => {
           
           <div class="flex items-center justify-between my-4">
             <button type="button" @click="all" class="inline-block rounded-lg text-indigo-600 dark:text-indigo-500 dark:hover:text-white hover:text-white hover:bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 shadow-sm ring-2 ring-indigo-600">
-              All Questions 🚀
+              {{ $t('all-questions') }}
             </button>
             <button type="button" @click="start" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-2 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">
-              Start <span class="text-indigo-200">&rarr;</span>
+              {{ $t('start') }}
+              <span class="text-indigo-200">
+                <Locale>
+                  &rarr;
+                  <template #ar>
+                    &larr;
+                  </template>
+                </Locale>
+              </span>
             </button>
           </div>
       </div>

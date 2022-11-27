@@ -17,7 +17,9 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         {{ index + 1 }}. {{ question.title }}
       </h2>
     </div>
-    <pre v-if="question.body" v-html="question.body"></pre>
+    <div dir="ltr">
+      <pre v-if="question.body" v-html="question.body" class="!text-left"></pre>
+    </div>
     <ul class="px-0 list-none">
       <li v-for="(choice, i) in question.choices" :class="[
           'p-2 rounded border-2 border-solid flex transition',
@@ -30,7 +32,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         ]"
         @click="$emit('select', i)"
       >
-        <div class="flex items-center justify-center w-8 h-8 mr-2 font-bold bg-gray-100 rounded shadow">
+        <div class="flex items-center justify-center w-8 h-8 mr-2 font-bold bg-gray-100 rounded shadow rtl:mr-0 rtl:ml-2">
           {{ letters[i] }}
         </div>
         <div v-html="choice.html" class="dark:text-gray-200"></div>

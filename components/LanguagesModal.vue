@@ -36,12 +36,12 @@ const close = () => {
 
 <template>
   <Modal :visible="visible" @close="close">
-    <h2 class="mx-auto mb-8 text-2xl font-bold text-center">Choose Your Language</h2>
+    <h2 class="mx-auto mb-8 text-2xl font-bold text-center rtl:text-center">{{ $t('choose-your-language') }}</h2>
       <div class="grid grid-cols-3 gap-4 overflow-y-auto sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 max-h-80">
         <NuxtLink v-for="lang in langs" :to="lang.to"
-          class="p-2 text-center border rounded cursor-pointer hover:border-indigo-500 dark:hover:bg-indigo-300 dark:hover:bg-opacity-20 hover:bg-opacity-30 hover:bg-indigo-200">
+          class="p-2 text-center border rounded cursor-pointer rtl:text-center hover:border-indigo-500 dark:hover:bg-indigo-300 dark:hover:bg-opacity-20 hover:bg-opacity-30 hover:bg-indigo-200">
           <span class="text-lg font-emoji">{{ lang.flag }}</span>
-          <span class="block text-xs">{{ lang.name }}</span>
+          <span class="block text-xs rtl:text-center">{{ lang.name }}</span>
         </NuxtLink>
       </div>
   </Modal>

@@ -53,20 +53,43 @@ const openModel = () => {
     <main class="relative z-10 flex items-center justify-center min-h-screen">
       <div class="max-w-6xl px-5 py-10 content">
         <h1 class="text-4xl font-bold tracking-tight text-black sm:text-center sm:text-7xl dark:text-white">
-          <span class="text-javascript">JavaScript</span> Quiz Questions
+          <Locale>
+            <span class="text-javascript">{{ $t('javascript') }}</span> {{ $t('quiz-questions') }}
+            <template #ar>
+              {{ $t('quiz-questions') }} <span class="text-javascript">{{ $t('javascript') }}</span>
+            </template>
+          </Locale>
         </h1>
         <p class="mt-6 text-xl leading-8 text-gray-600 dark:text-slate-400 sm:text-center">
-          The questions are generate from the <strong>most</strong> popular JavaScript questions
-          <a href="https://github.com/lydiahallie/javascript-questions" target="_blank"
+          <Locale>
+            <span v-html="$t('home-subtitle') + ' '"></span>
+            <a href="https://github.com/lydiahallie/javascript-questions" target="_blank"
             class="font-semibold underline decoration-indigo-500">repo</a>.
+            <template #ar>
+              <div class="flex flex-wrap items-center justify-center">
+                <span>تم جمع الاسئلة من</span>&nbsp;
+                <a href="https://github.com/lydiahallie/javascript-questions" target="_blank"
+                class="font-semibold underline decoration-indigo-500">المستودع</a>&nbsp;
+                <strong>الاكثر شهره</strong>&nbsp;
+                <span>لاسئلة جافاسكرتب</span>
+              </div>
+            </template>
+          </Locale>
         </p>
         <div class="flex mt-8 gap-x-4 sm:justify-center">
           <a href="#"
             class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-lg font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700"
             @click="openModel"
           >
-            Start Your Quiz
-            <span class="text-indigo-200" aria-hidden="true">&rarr;</span>
+            {{ $t('start-your-quiz') }}
+            <span class="text-indigo-200" aria-hidden="true">
+              <Locale>
+                &rarr;
+                <template #ar>
+                  &larr;
+                </template>
+              </Locale>
+            </span>
           </a>
         </div>
       </div>

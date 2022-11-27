@@ -83,20 +83,36 @@ const review = () => {
     <!-- Back -->
     <button type="button" @click="back" :disabled="!canGoBack"
       class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-2 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
-      &larr; Back
+      <span class="text-indigo-200">
+        <Locale>
+          &larr;
+          <template #ar>
+            &rarr;
+          </template>
+        </Locale>
+      </span>
+      {{ $t('back') }}
     </button>
     <!-- /Back -->
 
     <!-- Next -->
     <button v-if="!isLast" type="button" @click="next" :disabled="!canGoNext"
       class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-2 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
-      Next &rarr;
+      {{ $t('next') }}
+      <span class="text-indigo-200">
+        <Locale>
+          &rarr;
+          <template #ar>
+            &larr;
+          </template>
+        </Locale>
+      </span>
     </button>
     <!-- /Next -->
     <!-- Submit -->
     <button v-if="isLast" type="button" @click="submit" :disabled="!canGoNext || isSubmitted"
       class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-2 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed">
-      Submit 🚀
+      {{ $t('submit') }} 🚀
     </button>
     <!-- /Submit -->
   </div>

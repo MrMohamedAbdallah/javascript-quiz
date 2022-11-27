@@ -5,7 +5,7 @@
         <NuxtLink to="/"
           class="mr-4 text-base rtl:mr-0 rtl:ml-4 hover:text-indigo-700 text-slate-900 dark:text-gray-400 dark:hover:text-indigo-400"
           activeClass="!text-indigo-500">
-          Home
+          {{ $t('home') }}
         </NuxtLink>
         <!-- Localization -->
         <I18n class="mr-auto rtl:mr-0 rtl:ml-auto" />
