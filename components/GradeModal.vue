@@ -5,6 +5,7 @@ const props = defineProps({
   visible: Boolean,
   grade: Number,
   total: Number,
+  results: Array,
 })
 
 
@@ -21,13 +22,17 @@ const close = () => {
     <h2 class="mx-auto mt-0 mb-8 text-6xl font-bold text-center rtl:text-center">
       <span class="text-javascript">{{ grade }}</span> <span class="text-4xl dark:text-gray-200">/{{ total }}</span>
     </h2>
-    <p class="mt-4 mb-0 text-2xl font-semibold rtl:text-center">
+    <p class="mt-4 mb-0 text-2xl font-semibold text-center rtl:text-center">
       <span v-if="ratio < .6">{{ $t('try-harder')}} 😔</span>
       <span v-else-if="ratio < .7">{{ $t('just-luck')}} 🙄</span>
       <span v-else-if="ratio < .9">{{ $t('get-better')}} ✊</span>
       <span v-else-if="ratio < 1">{{ $t('little-bit')}} 🤏</span>
       <span v-else>🥳✨🎊🎉🥳✨🎊🎉</span>
     </p>
+
+    <div class="mt-4 text-center rtl:text-center">
+      <ShareButton text="share-results" :results="results"/>
+    </div>
 
     <div class="flex items-center justify-between mt-8">
       <NuxtLink to="/" class="rounded-lg text-indigo-600 dark:text-indigo-500 dark:hover:text-white hover:text-white hover:bg-indigo-600 px-4 py-1.5 text-xs sm:text-sm font-semibold shadow-sm ring-2 ring-indigo-600 no-underline">

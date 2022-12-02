@@ -25,6 +25,8 @@ export default defineNuxtPlugin(nuxtApp => {
         'little-bit': 'بقى القليل فقط',
         'go-home': 'اذهب للصفحة الرئيسية',
         'review-answers': 'مراجعة الاجابات',
+        'share': 'شارك',
+        'share-results': 'شارك نتيجتك',
       },
       en: {
         'home': "Home",
@@ -47,6 +49,8 @@ export default defineNuxtPlugin(nuxtApp => {
         'little-bit': 'Just a little bit',
         'go-home': 'Go to homepage',
         'review-answers': 'Review your answers',
+        'share': 'Share',
+        'share-results': 'Share Results',
       }
     }
   })

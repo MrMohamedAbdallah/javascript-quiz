@@ -17,6 +17,7 @@ module.exports = {
     extend: {
       colors: {
         javascript: '#f0db4f',
+        twitter: '#1DA1F2',
       },
       fontFamily: {
         'emoji': ["Twemoji Country Flags", "Helvetica", "Comic Sans", 'serif'],

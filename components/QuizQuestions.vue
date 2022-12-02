@@ -11,6 +11,12 @@ const grade = ref(0);
 const isSubmitted = ref(false);
 const showModal = ref(false);
 
+const results = computed(() => {
+  if(isSubmitted.value)
+    return props.questions.map(q => !!q.choices[q.userAnswer].isCorrect);
+  return [];
+});
+
 const next = () => {
   currentIndex.value += 1;
 }
@@ -76,6 +82,10 @@ const review = () => {
 </script>
 <template>
 
+  <div class="mb-2">
+    <ShareButton v-if="isSubmitted" text="share-results" :results="results"/>
+  </div>
+
   <Question :question="questions[currentIndex]" :dir="dir" :index="currentIndex" :showAnswer="isSubmitted"
     @select="select($event)" />
 
@@ -117,6 +127,6 @@ const review = () => {
     <!-- /Submit -->
   </div>
 
-  <GradeModal v-model:visible="showModal" :grade="grade" :total="questions.length" @review="review"/>
+  <GradeModal v-model:visible="showModal" :grade="grade" :total="questions.length" :results="results" @review="review"/>
 
 </template>
