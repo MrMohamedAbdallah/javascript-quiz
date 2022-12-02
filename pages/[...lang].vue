@@ -67,6 +67,15 @@ const all = () => {
   numberOfQuestions.value = questions.value.length;
   start();
 }
+
+
+/**
+ * Restart quiz process.
+ * @return {void}
+ */
+const restart = () => {
+  started.value = false;
+}
 </script>
 
 <template>
@@ -119,7 +128,7 @@ const all = () => {
     
     
     <div class="mx-auto prose" v-if="started">
-        <QuizQuestions :questions="quizQuestions" :dir="dir"/>
+        <QuizQuestions :questions="quizQuestions" :dir="dir" @restart="restart"/>
     </div>
   </div>
 </template>

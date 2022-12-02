@@ -6,6 +6,9 @@ const props = defineProps({
   dir: 'ltr',
 })
 
+const $emits = defineEmits(['restart']);
+
+
 const currentIndex = ref(0);
 const grade = ref(0);
 const isSubmitted = ref(false);
@@ -79,11 +82,15 @@ const review = () => {
   showModal.value = false;
   currentIndex.value = 0;
 }
+
+
+const restart = () => $emits('restart');
 </script>
 <template>
 
-  <div class="mb-2">
-    <ShareButton v-if="isSubmitted" text="share-results" :results="results"/>
+  <div class="flex items-center justify-between mb-2" v-if="isSubmitted">
+    <ShareButton text="share-results" :results="results"/>
+    <button type="button" class="px-3 py-1 font-semibold text-black rounded bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700" @click="restart">{{ $t('try-again') }}</button>
   </div>
 
   <Question :question="questions[currentIndex]" :dir="dir" :index="currentIndex" :showAnswer="isSubmitted"

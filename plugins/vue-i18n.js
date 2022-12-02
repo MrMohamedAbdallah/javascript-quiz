@@ -27,6 +27,7 @@ export default defineNuxtPlugin(nuxtApp => {
         'review-answers': 'مراجعة الاجابات',
         'share': 'شارك',
         'share-results': 'شارك نتيجتك',
+        'try-again': 'أعد المحاولة',
       },
       en: {
         'home': "Home",
@@ -51,6 +52,7 @@ export default defineNuxtPlugin(nuxtApp => {
         'review-answers': 'Review your answers',
         'share': 'Share',
         'share-results': 'Share Results',
+        'try-again': 'Try Again',
       }
     }
   })
