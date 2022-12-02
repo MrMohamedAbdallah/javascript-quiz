@@ -32,8 +32,8 @@ export default defineNuxtPlugin(nuxtApp => {
       en: {
         'home': "Home",
         'quiz-questions': "Quiz Questions",
-        'javascript': "Javascript",
-        'home-subtitle': 'The questions are generate from the most popular JavaScript questions',
+        'javascript': "JavaScript",
+        'home-subtitle': 'The questions are generated from the most popular JavaScript questions',
         'repo': 'repo',
         'start-your-quiz': 'Start Your Quiz',
         'choose-your-language': 'Choose Your Language',
