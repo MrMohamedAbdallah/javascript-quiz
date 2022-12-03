@@ -1,6 +1,26 @@
-# Nuxt 3 Minimal Starter
+# JavaScript Questions Quiz App
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Javascript quiz app generated from the most popular JavaScript questions [repo](https://github.com/lydiahallie/javascript-questions) 🌟.
+
+
+The app is build using [Nuxt 3](https://nuxt.com) & [Tailwind CSS](https://tailwindcss.com/) 🚀😎
+
+
+The questions are being fetched in the front-end directly from the GitHub repo and then parsed using [marked](https://github.com/markedjs/marked)
+
+
+
+## [Visit the website](https://javascript-questions-quiz.vercel.app/)
+
+
+                         
+## Screenshots
+
+![Homepage Light](/screenshots/home_light.png)  |  ![Results Light](/screenshots/results_light.png)
+:-------------------------:|:-------------------------:
+![Homepage Dark](/screenshots/home_dark.png)  |  ![Results Dark](/screenshots/results_dark.png)
+
+
 
 ## Setup
 
